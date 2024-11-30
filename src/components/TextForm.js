@@ -13,6 +13,16 @@ export default function TextForm(props) {
         // console.log("Lowercase was clicked");
         setText(text.toLowerCase());
     };
+    const handleCopy = () => {
+        // console.log("Lowercase was clicked");
+        var text = document.getElementById("myTextBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    const handleExtraSpaces = () => {
+        // console.log("Lowercase was clicked");
+        setText(text.replace(/\s+/g, " "));
+    }
     const [text, setText] = useState("Enter text here");
     return (
         <>
@@ -23,7 +33,11 @@ export default function TextForm(props) {
                 </div>
                 <button className="btn btn-primary" onClick={handleUpparCaseClick}>Convert to UPPARCASE</button>
                 <button className="btn btn-primary mx-2" onClick={handleLowerCaseClick}>Convert to lowercase</button>
+                <button className="btn btn-primary" onClick={() => setText("")}>Clear Text</button>
+                <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>
+                <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Space</button>
             </div>
+
             <div className="container my-3">
                 <h2>Your text summary</h2>
                 <p>{text.split(" ").length} words and {text.length} characters</p>
