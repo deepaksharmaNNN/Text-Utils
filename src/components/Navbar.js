@@ -9,15 +9,9 @@ export default function Navbar(props) {
           <a className="navbar-brand" href="/">
             {props.title}
           </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation" >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,14 +28,14 @@ export default function Navbar(props) {
               </li>
             </ul>
           </div>
-          <div class="form-check form-switch mx-2">
-            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-            <label className="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
+          <div className={`form-check form-switch mx-2 text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+            <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode</label>
           </div>
         </div>
       </nav>
     </div>
   );
 }
-Navbar.propTypes = { title: PropTypes.string.isRequired, about: PropTypes.string.isRequired };
+Navbar.propTypes = { title: PropTypes.string.isRequired };
 // Navbar.defaultProps = { title: "Title Here", about: "About Here" };
