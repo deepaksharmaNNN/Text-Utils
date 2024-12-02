@@ -2,25 +2,20 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
     const handleUpparCaseClick = () => {
-        // console.log("UpparCase was clicked");
         setText(text.toUpperCase());
     };
     const handleOnChange = (event) => {
-        // console.log("On Change");
         setText(event.target.value);
     };
     const handleLowerCaseClick = () => {
-        // console.log("Lowercase was clicked");
         setText(text.toLowerCase());
     };
     const handleCopy = () => {
-        // console.log("Lowercase was clicked");
         var text = document.getElementById("myTextBox");
         text.select();
         navigator.clipboard.writeText(text.value);
     }
     const handleExtraSpaces = () => {
-        // console.log("Lowercase was clicked");
         setText(text.replace(/\s+/g, " "));
     }
     const [text, setText] = useState("");
